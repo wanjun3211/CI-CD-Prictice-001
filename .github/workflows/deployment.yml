@@ -20,6 +20,18 @@ jobs:
             run:  npm ci
           - name: Run test
             run:  npm test
+    build:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+          - name: Get code
+            uses: actions/checkout@v6
+          - name: Install dependencies
+            run:  npm ci
+          - name: build project
+            run:  npm run build
+     
+
 
 
 
